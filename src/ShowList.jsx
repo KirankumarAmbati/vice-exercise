@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ShowList = ({ shows }) => (
+const ShowList = ({ shows, handler }) => (
   <ul>
-    {shows.map(({ name, id }) => <li key={id}>{name}--{id}</li>)}
+    {
+      shows.map(({ name, id }) => <li key={id} onClick={e => handler(id)}>{name}--{id}</li>)
+    }
   </ul>
 );
 
@@ -14,8 +16,10 @@ ShowList.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
   })),
+  handler: PropTypes.func,
 };
 
 ShowList.defaultProps = {
   shows: [],
+  handler: () => { },
 };

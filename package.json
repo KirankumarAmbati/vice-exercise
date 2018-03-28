@@ -6,7 +6,7 @@
   "author": "Omar Delarosa <thedelarosa@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start-api": "json-server --watch teams.json",
+    "start-api": "json-server --watch teams.json --port 3001",
     "lint": "eslint src/**/*.js",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
