@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ShowContainer from './ShowContainer';
 
 const App = () => (
-  <div>Hello World</div>
+  <ShowContainer />
 );
 
 export default App;
