@@ -1,25 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './showList.less';
 
 const ShowList = ({ shows, handler }) => (
-  <ul>
-    {
-      shows.map(({ name, id }) => <li key={id} onClick={e => handler(id)}>{name}--{id}</li>)
-    }
-  </ul>
+  <div className="showList">
+    <div onClick={() => handler(-2)} className="item skinny" />
+    <div onClick={() => handler(-1)} className="item" />
+    <div className="item focused" />
+    <div onClick={() => handler(1)} className="item" />
+    <div onClick={() => handler(2)} className="item skinny" />
+  </div>
 );
 
 export default ShowList;
-
-ShowList.propTypes = {
-  shows: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-  })),
-  handler: PropTypes.func,
-};
-
-ShowList.defaultProps = {
-  shows: [],
-  handler: () => { },
-};

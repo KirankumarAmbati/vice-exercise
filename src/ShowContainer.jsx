@@ -13,9 +13,7 @@ class ShowContainer extends React.Component {
     super();
     this.state = {
       shows: [],
-      featured: {
-        name: 'Placeholder',
-      },
+      featuredIndex: 0,
     };
 
     this.handleShowlistClick = this.handleShowlistClick.bind(this);
@@ -25,43 +23,35 @@ class ShowContainer extends React.Component {
     fetch('http://localhost:3001/teams')
       .then(res => res.json())
       .then((shows) => {
-        this.setState({ shows });
-
-        const featured = this.findFeatured() || shows[0];
-        this.setState({ featured });
+        const featuredIndex = this.findFeaturedIndex(shows) || 0;
+        this.setState({ featuredIndex, shows });
       });
 
     window.onpopstate = () => {
-      this.changeFeatured();
+      this.setState({ featuredIndex: this.findFeaturedIndex() });
     };
   }
 
-  findFeatured(incomingId = getIdFromUrl()) {
-    return this.state.shows.find(({ id }) => `${id}` === `${incomingId}`);
+  findFeaturedIndex(shows = this.state.shows) {
+    return shows.findIndex(({ id }) => `${id}` === `${getIdFromUrl()}`);
   }
 
-  changeFeatured(id) {
-    const featured = this.findFeatured(id);
-    if (featured && featured.id !== this.state.featured.id) {
-      this.setState({ featured });
-    }
-  }
+  handleShowlistClick(delta) {
+    const { shows, featuredIndex } = this.state;
 
-  handleShowlistClick(id) {
-    this.changeFeatured(id);
-    window.history.pushState({}, '', `?id=${id}`);
+    const newIndex = featuredIndex + delta;
+    this.setState({ featuredIndex: newIndex });
+    window.history.pushState({}, '', `?id=${shows[newIndex].id}`);
   }
 
   render() {
+    const { shows, featuredIndex } = this.state;
+
     return (
       <div>
-        <FeaturedShow
-          name={this.state.featured.name}
-        />
-        <ShowList
-          handler={this.handleShowlistClick}
-          shows={this.state.shows}
-        />
+        <FeaturedShow show={shows[featuredIndex]} />
+        <ShowList handler={this.handleShowlistClick} />
+        <h1>{featuredIndex + 1}</h1>
       </div>
     );
   }
