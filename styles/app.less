@@ -1,0 +1,22 @@
+@grey: #ECECEC;
+@dark-grey: #999;
+@breakpoint: ~"(min-width: 980px)";
+
+.centered-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@import 'show-container';
+@import 'show-list';
+@import 'featured-show';
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+
+  @media @breakpoint {
+    background-color: cornflowerblue;
+  }
+}

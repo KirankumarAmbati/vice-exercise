@@ -1,0 +1,43 @@
+.show-list {
+  border-top: 2px solid @grey;
+  padding: 2rem 0;
+  width: 100%;
+  .centered-flex;
+
+  @media @breakpoint {
+    border-top: none;
+    border-bottom: 2px solid @grey;
+  }
+
+  &--items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .item {
+      height: 30px;
+      width: 30px;
+      background-color: @grey;
+
+      &:first-child, &:last-child {
+        width: 20px;
+      }
+
+      &:nth-child(3) {
+        background-color: #000;
+      }
+
+      &.hide {
+        height: 0;
+      }
+    }
+  }
+
+  &--page {
+    margin: 10px;
+    font-size: .75rem;
+  }
+}

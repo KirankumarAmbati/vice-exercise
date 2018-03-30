@@ -12,7 +12,11 @@ class ShowContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      shows: [],
+      shows: [{
+        product_image_url: '',
+        episodes: 0,
+        title: '',
+      }],
       activeIndex: 0,
     };
 
@@ -20,7 +24,7 @@ class ShowContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/teams')
+    fetch('http://localhost:3001/shows')
       .then(res => res.json())
       .then((shows) => {
         const activeIndex = this.findActiveIndex(shows) || 0;
@@ -55,7 +59,6 @@ class ShowContainer extends React.Component {
           activeIndex={activeIndex}
           handler={this.handleShowlistClick}
         />
-        <h1>{activeIndex + 1}</h1>
       </div>
     );
   }
