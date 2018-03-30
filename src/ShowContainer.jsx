@@ -13,7 +13,7 @@ class ShowContainer extends React.Component {
     super();
     this.state = {
       shows: [],
-      featuredIndex: 0,
+      activeIndex: 0,
     };
 
     this.handleShowlistClick = this.handleShowlistClick.bind(this);
@@ -23,35 +23,39 @@ class ShowContainer extends React.Component {
     fetch('http://localhost:3001/teams')
       .then(res => res.json())
       .then((shows) => {
-        const featuredIndex = this.findFeaturedIndex(shows) || 0;
-        this.setState({ featuredIndex, shows });
+        const activeIndex = this.findActiveIndex(shows) || 0;
+        this.setState({ activeIndex, shows });
       });
 
     window.onpopstate = () => {
-      this.setState({ featuredIndex: this.findFeaturedIndex() });
+      this.setState({ activeIndex: this.findActiveIndex() });
     };
   }
 
-  findFeaturedIndex(shows = this.state.shows) {
-    return shows.findIndex(({ id }) => `${id}` === `${getIdFromUrl()}`);
+  findActiveIndex(shows = this.state.shows) {
+    const index = shows.findIndex(({ id }) => `${id}` === `${getIdFromUrl()}`);
+    return index > -1 && index;
   }
 
-  handleShowlistClick(delta) {
-    const { shows, featuredIndex } = this.state;
+  handleShowlistClick(newIndex) {
+    const { shows } = this.state;
 
-    const newIndex = featuredIndex + delta;
-    this.setState({ featuredIndex: newIndex });
+    this.setState({ activeIndex: newIndex });
     window.history.pushState({}, '', `?id=${shows[newIndex].id}`);
   }
 
   render() {
-    const { shows, featuredIndex } = this.state;
+    const { shows, activeIndex } = this.state;
 
     return (
-      <div>
-        <FeaturedShow show={shows[featuredIndex]} />
-        <ShowList handler={this.handleShowlistClick} />
-        <h1>{featuredIndex + 1}</h1>
+      <div className="showContainer">
+        <FeaturedShow show={shows[activeIndex]} />
+        <ShowList
+          rightBound={shows.length}
+          activeIndex={activeIndex}
+          handler={this.handleShowlistClick}
+        />
+        <h1>{activeIndex + 1}</h1>
       </div>
     );
   }
