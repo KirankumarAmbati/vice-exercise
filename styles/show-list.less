@@ -3,27 +3,45 @@
   padding: 2rem 0;
   width: 100%;
   .centered-flex;
+  position: absolute;
+  bottom: 0;
 
   @media @breakpoint {
     border-top: none;
     border-bottom: 2px solid @grey;
+    padding-bottom: 1rem;
+    top: 0;
+    bottom: inherit;
   }
 
   &--items {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    width: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
+
+    @media @breakpoint {
+      width: 30vw;
+    }
 
     .item {
-      height: 30px;
-      width: 30px;
       background-color: @grey;
+      height: 40px;
+      width: 40px;
+
+      @media @breakpoint {
+        width: 40px;
+        height: 40px;
+      }
 
       &:first-child, &:last-child {
-        width: 20px;
+        width: 15px;
+
+        @media @breakpoint {
+          width: 40px;
+        }
       }
 
       &:nth-child(3) {

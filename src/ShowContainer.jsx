@@ -52,7 +52,7 @@ class ShowContainer extends React.Component {
     const { shows, activeIndex } = this.state;
 
     return (
-      <div className="showContainer">
+      <div className="show-container">
         <FeaturedShow show={shows[activeIndex]} />
         <ShowList
           rightBound={shows.length}
