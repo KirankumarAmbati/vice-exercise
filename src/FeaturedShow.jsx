@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const base = 'featured-show';
-
 const FeaturedShow = ({ show }) => (
   <div className={base}>
     <img

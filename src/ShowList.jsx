@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,7 +8,9 @@ const ShowList = ({ handler, activeIndex, rightBound }) => {
     const hide = shift < 0 || shift >= rightBound;
 
     return (
-      <li
+      <button
+        data-shift={shift}
+        tabIndex="0"
         key={i}
         onClick={() => handler(shift)}
         className={`item${hide ? ' hide' : ''}`}
@@ -20,7 +20,7 @@ const ShowList = ({ handler, activeIndex, rightBound }) => {
 
   return (
     <div className={base}>
-      <ul className={`${base}--items`}>{items}</ul>
+      <div className={`${base}--items`}>{items}</div>
       <div className={`${base}--page`}>{activeIndex + 1}</div>
     </div>
   );

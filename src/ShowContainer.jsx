@@ -20,11 +20,11 @@ class ShowContainer extends React.Component {
       activeIndex: 0,
     };
 
-    this.handleShowlistClick = this.handleShowlistClick.bind(this);
+    this.handleShowlist = this.handleShowlist.bind(this);
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/shows')
+    fetch('http://localhost:3000/shows')
       .then(res => res.json())
       .then((shows) => {
         const activeIndex = this.findActiveIndex(shows) || 0;
@@ -41,7 +41,7 @@ class ShowContainer extends React.Component {
     return index > -1 && index;
   }
 
-  handleShowlistClick(newIndex) {
+  handleShowlist(newIndex) {
     const { shows } = this.state;
 
     this.setState({ activeIndex: newIndex });
@@ -57,7 +57,7 @@ class ShowContainer extends React.Component {
         <ShowList
           rightBound={shows.length}
           activeIndex={activeIndex}
-          handler={this.handleShowlistClick}
+          handler={this.handleShowlist}
         />
       </div>
     );
