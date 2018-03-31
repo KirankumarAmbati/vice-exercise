@@ -1,17 +1,13 @@
 .show-list {
+  .centered-flex;
   border-top: 2px solid @grey;
   padding: 2rem 0;
   width: 100%;
-  .centered-flex;
-  position: absolute;
-  bottom: 0;
 
   @media @breakpoint {
     border-top: none;
     border-bottom: 2px solid @grey;
     padding-bottom: 1rem;
-    top: 0;
-    bottom: inherit;
   }
 
   &--items {
@@ -28,8 +24,9 @@
 
     .item {
       background-color: @grey;
-      height: 40px;
       width: 40px;
+      height: 40px;
+      transition: transform .2s ease-in;
 
       @media @breakpoint {
         width: 40px;
@@ -50,6 +47,10 @@
 
       &.hide {
         height: 0;
+      }
+
+      &:hover:not(:nth-child(3)){
+        transform: scale(1.2);
       }
     }
   }
