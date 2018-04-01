@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowList component baseline 1`] = `
+<div
+  className="show-list"
+>
+  <div
+    className="show-list--items"
+  >
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+  </div>
+  <div
+    className="show-list--page"
+  >
+    4
+  </div>
+</div>
+`;
+
+exports[`ShowList component edge case 1`] = `
+<div
+  className="show-list"
+>
+  <div
+    className="show-list--items"
+  >
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item hide"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+    <button
+      className="item hide"
+      onClick={[Function]}
+      tabIndex="0"
+    />
+  </div>
+  <div
+    className="show-list--page"
+  >
+    10
+  </div>
+</div>
+`;

@@ -1,5 +1,15 @@
-## TODO
-- prod build
+# Exercise Submission - Colin MacKenzie
+
+Run `yarn start-api` and `yarn dev` in two shells to get up and running. The app should open (and be available at `http://localhost:8080/` if not). Files/directories of interest are: 
+ - Anything in `src/` (particularly `components/` and `containers/`)
+ - Styles in `styles/`
+ - Component snapshot tests in `__tests__`
+ - Bundling in `webpack.config.js`
+
+ Next steps - if I kept working on this, I'd like to add:
+ - A proper production build with minified JS, CSS in a file (vs the `<head>` tag)
+ - Testing for the `ShowContainer` container with a stubbed out data fetch. 
+ 
 # VICE Front-end Coding Exercise
 
 Below is a HTML/CSS/JS exercise that involves building out a web component, or single page app, to navigate through various VICE shows.

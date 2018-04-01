@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeaturedShow component 1`] = `
+<div
+  className="featured-show"
+>
+  <img
+    alt="Gaycation"
+    className="featured-show--image"
+    src="/images/gaycation.jpg"
+  />
+  <h3
+    className="featured-show--meta"
+  >
+    24 episodes
+  </h3>
+  <h2
+    className="featured-show--title"
+  >
+    Gaycation
+  </h2>
+</div>
+`;

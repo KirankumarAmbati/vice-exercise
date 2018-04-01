@@ -9,7 +9,6 @@ const ShowList = ({ handler, activeIndex, rightBound }) => {
 
     return (
       <button
-        data-shift={shift}
         tabIndex="0"
         key={i}
         onClick={() => handler(shift)}

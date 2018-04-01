@@ -27,6 +27,7 @@ class ShowContainer extends React.Component {
     fetch('http://localhost:3000/shows')
       .then(res => res.json())
       .then((shows) => {
+        console.log(shows);
         const activeIndex = this.findActiveIndex(shows) || 0;
         this.setState({ activeIndex, shows });
       });
