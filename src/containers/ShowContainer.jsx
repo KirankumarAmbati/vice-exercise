@@ -1,7 +1,7 @@
 import React from 'react';
 import queryString from 'query-string';
-import ShowList from './ShowList';
-import FeaturedShow from './FeaturedShow';
+import ShowList from 'components/ShowList';
+import FeaturedShow from 'components/FeaturedShow';
 
 function getIdFromUrl() {
   const query = queryString.parse(window.location.search);

@@ -1,3 +1,5 @@
+## TODO
+- prod build
 # VICE Front-end Coding Exercise
 
 Below is a HTML/CSS/JS exercise that involves building out a web component, or single page app, to navigate through various VICE shows.
