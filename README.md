@@ -1,14 +1,22 @@
 # Exercise Submission - Colin MacKenzie
 
-Run `yarn start-api` and `yarn dev` in two shells to get up and running. The app should open (and be available at `http://localhost:8080/` if not). Files/directories of interest are: 
+The exercise is available [here](https://mackenco.bitbucket.io/). To view locally, run: 
+ - `yarn install` 
+ - `yarn start-api`
+ - `yarn dev` (in a separate shell from the API)
+ - The exercise should open (and be available at `http://localhost:8080/` if not).
+ 
+ Files/directories of interest are: 
  - Anything in `src/` (particularly `components/` and `containers/`)
  - Styles in `styles/`
+ - Building + bundling in `webpack.config.js`
  - Component snapshot tests in `__tests__`
- - Bundling in `webpack.config.js`
 
  Next steps - if I kept working on this, I'd like to add:
  - A proper production build with minified JS, CSS in a file (vs the `<head>` tag)
  - Testing for the `ShowContainer` container with a stubbed out data fetch. 
+
+ ---
  
 # VICE Front-end Coding Exercise
 
