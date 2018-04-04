@@ -3,12 +3,13 @@ import queryString from 'query-string';
 import ShowList from 'components/ShowList';
 import FeaturedShow from 'components/FeaturedShow';
 
-function getIdFromUrl() {
-  const query = queryString.parse(window.location.search);
-  return query && query.id;
-}
 
 class ShowContainer extends React.Component {
+  static getIdFromUrl() {
+    const query = queryString.parse(window.location.search);
+    return query && query.id;
+  }
+
   constructor() {
     super();
     this.state = {
@@ -37,7 +38,7 @@ class ShowContainer extends React.Component {
   }
 
   findActiveIndex(shows = this.state.shows) {
-    const index = shows.findIndex(({ id }) => `${id}` === `${getIdFromUrl()}`);
+    const index = shows.findIndex(({ id }) => `${id}` === `${ShowContainer.getIdFromUrl()}`);
     return index > -1 && index;
   }
 

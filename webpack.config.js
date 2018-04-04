@@ -3,11 +3,13 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
+  devtool: 'source-map',
   entry: {
     index: './src/index.js',
   },
   devServer: {
     contentBase: './',
+    port: 8000,
   },
   module: {
     rules: [

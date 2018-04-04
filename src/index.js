@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import ShowContainer from 'containers/ShowContainer';
-import styles from '../styles/app.less'; // eslint-disable-line no-unused-vars
+import '../styles/app.less';
 
 const App = () => (
   <ShowContainer />
@@ -9,4 +9,4 @@ const App = () => (
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById('app'));
+render(<App />, document.getElementById('app'));
